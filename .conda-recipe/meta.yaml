@@ -15,38 +15,34 @@ package:
 build:
   noarch: python
   script:
-    # Generate Arduino code
+    # Ensure Python script is executed in a clean environment
     - python file_handler.py
-    # Install source directory as Python package.
-    - python -B setup.py install --single-version-externally-managed --record record.txt
+    # Install the Python package using pip for better compatibility
+    - pip install . --no-deps --ignore-installed --no-cache-dir
 
 requirements:
   build:
     - python {{ python }}
-    - protobuf 3.20.*
+    - protobuf 3.20.3
+    - protoc 3.1.0
     - six
     - base-node-rpc
-    - clang=5.0.0
-    - python-clang=5.0.0
-    - clang-helpers=0.9.1
+    - clang 5.0.0
+    - python-clang 5.0.0
+    - clang-helpers 0.9.1
     - m2w64-toolchain
-outputs:
-  - name: {{ PKG_NAME }}
-    noarch: python
-    files:
-      - Lib/site-packages/{{ MODULE_NAME }}
-    requirements:
-      run:
-        - python {{ python }}
-        - protobuf 3.20.*
-        - six
-        - base-node-rpc
-        - m2w64-toolchain
-    test:
-      imports:
-        - mr_box_peripheral_board
-        - mr_box_peripheral_board.proxy
 
+  run:
+    - python {{ python }}
+    - protobuf >=3.20.0,<3.21.0
+    - six
+    - base-node-rpc
+    - m2w64-toolchain
+
+test:
+  imports:
+    - {{ MODULE_NAME }}
+    - {{ MODULE_NAME }}.proxy
 
 about:
   home: https://github.com/wheeler-microfluidics/mr-box-peripheral-board.py
