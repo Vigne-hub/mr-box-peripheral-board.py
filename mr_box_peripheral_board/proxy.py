@@ -35,6 +35,7 @@ try:
         def config_class(self):
             return Config
 
+
     class ProxyMixin(ConfigMixin):
         '''
         Mixin class to add convenience wrappers around methods of the generated
@@ -62,10 +63,10 @@ try:
 
         def get_adc_calibration(self):
             calibration_settings = \
-                pd.Series(OrderedDict([('Self-Calibration_Gain', self.MAX11210_getSelfCalGain()),
-                                       ('Self-Calibration_Offset', self.MAX11210_getSelfCalOffset()),
-                                       ('System_Gain', self.MAX11210_getSysGainCal()),
-                                       ('System_Offset', self.MAX11210_getSysOffsetCal())]))
+            pd.Series(OrderedDict([('Self-Calibration_Gain', self.MAX11210_getSelfCalGain()),
+                                   ('Self-Calibration_Offset', self.MAX11210_getSelfCalOffset()),
+                                   ('System_Gain', self.MAX11210_getSysGainCal()),
+                                   ('System_Offset', self.MAX11210_getSysOffsetCal())]))
             return calibration_settings
 
         class ZStage(object):
@@ -170,7 +171,7 @@ try:
 
             def update_state(self, **kwargs):
                 bool_fields = ('engaged_stop_enabled', 'home_stop_enabled',
-                               'motor_enabled', 'micro_stepping')
+                            'motor_enabled', 'micro_stepping')
                 for key_i, value_i in kwargs.iteritems():
                     if key_i in bool_fields:
                         action = 'enable' if value_i else 'disable'
