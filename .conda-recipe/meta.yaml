@@ -17,7 +17,6 @@ build:
   script:
     # Generate Arduino code
     - python file_handler.py
-    -
     # Install source directory as Python package.
     - python -B setup.py install --single-version-externally-managed --record record.txt
 
