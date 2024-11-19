@@ -1,5 +1,5 @@
 def test_connection():
-    from mr_box_peripheral_board.proxy_py3 import SerialProxy
+    from mr_box_peripheral_board.proxy import SerialProxy
 
     import time
     proxy = SerialProxy(port="COM5")
