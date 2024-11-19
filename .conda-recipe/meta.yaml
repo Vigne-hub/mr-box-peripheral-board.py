@@ -14,8 +14,6 @@ package:
 
 build:
   noarch: python
-  entry_points:
-    - mr-box-peripheral-board-upload = mr_box_peripheral_board.bin.upload:upload
   script:
     # Generate Arduino code
     - python file_handler.py
@@ -33,7 +31,6 @@ requirements:
     - python-clang=5.0.0
     - clang-helpers=0.9.1
     - m2w64-toolchain
-    -
 outputs:
   - name: {{ PKG_NAME }}
     noarch: python

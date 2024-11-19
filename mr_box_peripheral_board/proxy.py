@@ -281,6 +281,5 @@ try:
 
 
 except (ImportError, TypeError):
-    Proxy = None
     I2cProxy = None
     SerialProxy = None
