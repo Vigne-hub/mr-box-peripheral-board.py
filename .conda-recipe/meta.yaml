@@ -39,6 +39,8 @@ requirements:
     - base-node-rpc
 
 test:
+  requires:
+    - m2w64-toolchain
   imports:
     - {{ MODULE_NAME }}
     - {{ MODULE_NAME }}.proxy
