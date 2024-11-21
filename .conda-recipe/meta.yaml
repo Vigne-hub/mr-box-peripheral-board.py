@@ -16,7 +16,7 @@ build:
   noarch: python
   script:
     # Ensure Python script is executed in a clean environment
-    - python file_handler.py
+    - python generate_python_files.py
     # Install the Python package using pip for better compatibility
     - pip install . --no-deps --ignore-installed --no-cache-dir
 
