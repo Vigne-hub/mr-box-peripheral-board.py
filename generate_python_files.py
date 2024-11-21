@@ -6,7 +6,7 @@ import os
 from typing import Dict
 from importlib import import_module
 
-from base_node_rpc.helpers import generate_all_code
+from base_node_rpc.helpers import generate_protobuf_python_code, generate_python_code
 
 DEFAULT_ARDUINO_BOARDS = []
 
@@ -44,7 +44,7 @@ def get_properties(**kwargs) -> Dict:
         license='BSD-3',
         category='Communication',
         architectures='avr',
-        )
+    )
 
     lib_properties = {**properties, **meta}
 
@@ -70,7 +70,20 @@ def get_properties(**kwargs) -> Dict:
     return {**kwargs, **options}
 
 
-def execute():
+def generate_all_python_code(lib_options: Dict) -> None:
+    """
+    Generate all Python (host) code, but do not compile device sketch or C++ Device code.
+    """
+    top = f"{'#' * 80} Generating All Code {'#' * 80}"
+    print(top)
+
+    generate_protobuf_python_code(lib_options)
+    generate_python_code(lib_options)
+
+    print(f"{'#' * len(top)}")
+
+
+def main():
     properties = get_properties(
         prefix=os.getenv("CONDA_PREFIX"),
         source_dir=os.path.dirname(__file__)
@@ -79,10 +92,10 @@ def execute():
     top = '>' * 180
     print(top)
 
-    generate_all_code(properties)
+    generate_all_python_code(properties)
 
     print('<' * len(top))
 
 
 if __name__ == '__main__':
-    execute()
+    main()
