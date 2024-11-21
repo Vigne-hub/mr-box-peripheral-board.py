@@ -3,7 +3,7 @@
 import versioneer
 
 from setuptools import setup
-from file_handler import get_properties
+from generate_python_files import get_properties
 
 properties = get_properties(package_name='dropbot')['LIB_PROPERTIES']
 
