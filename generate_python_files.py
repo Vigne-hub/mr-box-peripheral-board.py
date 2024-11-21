@@ -74,7 +74,7 @@ def generate_all_python_code(lib_options: Dict) -> None:
     """
     Generate all Python (host) code, but do not compile device sketch or C++ Device code.
     """
-    top = f"{'#' * 80} Generating All Code {'#' * 80}"
+    top = f"{'#' * 80} Generating All Python (host) Code {'#' * 80}"
     print(top)
 
     generate_protobuf_python_code(lib_options)
