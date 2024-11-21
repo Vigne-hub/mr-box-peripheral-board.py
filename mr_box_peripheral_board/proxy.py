@@ -172,7 +172,7 @@ try:
             def update_state(self, **kwargs):
                 bool_fields = ('engaged_stop_enabled', 'home_stop_enabled',
                             'motor_enabled', 'micro_stepping')
-                for key_i, value_i in kwargs.iteritems():
+                for key_i, value_i in kwargs.items():
                     if key_i in bool_fields:
                         action = 'enable' if value_i else 'disable'
                         getattr(self._parent, '_zstage_{action}_{0}'
