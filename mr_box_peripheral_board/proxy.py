@@ -241,7 +241,7 @@ try:
                     raise IOError('No serial devices available for connection')
                 df_mr_box = df_devices.loc[df_devices.device_name == self.device_name]
                 if not df_mr_box.shape[0]:
-                    raise IOError('No DropBot available for connection')
+                    raise IOError('No Device available for connection')
                 port = df_mr_box.index[0]
 
             self.port = port
