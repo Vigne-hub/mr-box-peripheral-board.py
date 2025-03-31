@@ -1,0 +1,1 @@
+conda build .\.conda-recipe -c alexsk -c dropbot -c conda-forge

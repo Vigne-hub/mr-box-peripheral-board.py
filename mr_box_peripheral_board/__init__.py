@@ -10,7 +10,7 @@ if '+' in __version__:
 del get_versions
 
 try:
-    from .proxy import Proxy, I2cProxy, SerialProxy
+    from .proxy import I2cProxy, SerialProxy
 except (ImportError, TypeError) as exception:
     warnings.warn(str(exception))
 try:

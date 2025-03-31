@@ -5,5 +5,4 @@
 #
 # [1]: https://conda.io/docs/user-guide/tasks/build-packages/variants.html#using-variants-with-the-conda-build-api
 python:
-  - 2.7
-  - 3.6
+  - 3.10
