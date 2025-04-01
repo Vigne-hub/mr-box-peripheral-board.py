@@ -39,7 +39,6 @@ requirements:
     - six
     - base-node-rpc
     - ntfsutils # [win]
-    - m2w64-toolchain  # this should not be here, but in nadamq. That update needs to be done at some point. Workaround it by having this here. If in an environemnt with dropbot.py already installed. We cna just install with --no-deps option.
 
 test:
   imports:
